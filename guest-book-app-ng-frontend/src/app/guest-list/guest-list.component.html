@@ -1,0 +1,33 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Guest List</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Phone Number</th>
+          <th>Email</th>
+          <th>Creation Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let guest of guest | async">
+          <td>{{guest.firstName}}</td>
+          <td>{{guest.lastName}}</td>
+          <td>{{guest.phoneNumber}}</td>
+          <td>{{guest.emailId}}</td>
+          <td>{{guest.creationDate}}</td>
+          <td><button (click)="deleteGuest(guest.id)" class="btn btn-danger">Delete</button>
+              <button (click)="updateGuest(guest.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+              <button (click)="guestDetails(guest.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
